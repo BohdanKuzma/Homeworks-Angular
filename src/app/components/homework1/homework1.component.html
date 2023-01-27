@@ -1,0 +1,20 @@
+<div class="container_wrapper ">
+  <div class="heading">
+    <h1>
+      List of prohibited words:
+    </h1>
+  </div>
+  <div class="wrapper">
+    <p class="bad_words">Bad Words:<span>{{barWordList}}</span></p>
+    <div class="flex_btns">
+      <input type="text" class="input_text" [(ngModel)]="newWord" placeholder="word here..">
+      <button class="btn_add" (click)="addWord()" [disabled]="!newWord">Add</button>
+      <button class="btn_reset" (click)="reset()">Reset</button>
+    </div>
+    <div class="flex_textarea">
+      <textarea class="text_area" [(ngModel)]="textAreaValue" placeholder="text here.."></textarea>
+      <button class="cenzor" (click)="cenzor()" [disabled]="!textAreaValue">Cenzor</button>
+    </div>
+  </div>
+
+</div>
