@@ -1,0 +1,60 @@
+<div class="heading">
+  <h1>
+    Angular UserList
+  </h1>
+</div>
+<div class="container d-flex justify-content-between mt-5">
+  <div class="col-5 ">
+    <form>
+
+      <div class="mb-3">
+        <label for="exampleInputLogin" class="form-label">Login</label>
+        <input type="text" class="form-control" [(ngModel)]="login" name="login" id="exampleInputLogin">
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputPassword" class="form-label">Password</label>
+        <input type="password" class="form-control" [(ngModel)]="password" name="password" id="exampleInputPassword">
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputEmail" class="form-label">Email</label>
+        <input type="email" class="form-control" [(ngModel)]="email" name="email" id="exampleInputEmail">
+      </div>
+
+      <button *ngIf="!editStatus" type="button" class="btn btn-success" (click)="addUser()"
+        [disabled]="!login || !password || !email ">Add</button>
+      <button *ngIf="editStatus" type="button" class="btn btn-primary" (click)="saveUser()">Save</button>
+    </form>
+  </div>
+
+
+  <div class="col-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Password</th>
+          <th scope="col">Email</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users; index as i">
+          <td>{{i+1}}</td>
+          <td>{{user.login}}</td>
+          <td>{{user.password}}</td>
+          <td>{{user.email}}</td>
+          <td><button class="btn btn-warning" (click)="editUser(i)">Edit</button></td>
+          <td><button [disabled]="editStatus" class="btn btn-danger" (click)="deleteUser(i)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <ng-container *ngIf="users.length === 0">
+      <h1 class="text-center">No user found</h1>
+    </ng-container>
+  </div>
+
+</div>
