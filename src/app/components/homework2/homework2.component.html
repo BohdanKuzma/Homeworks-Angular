@@ -23,11 +23,10 @@
       </div>
 
       <button *ngIf="!editStatus" type="button" class="btn btn-success" (click)="addUser()"
-        [disabled]="!login || !password || !email ">Add</button>
+        [disabled]="!login || !password || !email">Add</button>
       <button *ngIf="editStatus" type="button" class="btn btn-primary" (click)="saveUser()">Save</button>
     </form>
   </div>
-
 
   <div class="col-6">
     <table class="table">
