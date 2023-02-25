@@ -1,0 +1,89 @@
+<div class="heading">
+  <h1>
+    My phone book!
+  </h1>
+</div>
+
+<div class="container mt-4">
+
+  <form class="row g-3">
+    <div class="col-9">
+      <input type="text" class="form-control" [(ngModel)]="search" name="search" placeholder="search text goes here">
+    </div>
+    <div class="col-3">
+      <button type="button" class="btn btn-success mb-3 col-3 w-100" (click)="openModal()">Add phone</button>
+    </div>
+  </form>
+
+</div>
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"><span (click)="changeSort('asc')">Firstname</span>
+          <button class="btn_sort" *ngIf="type=='desc'" (click)="changeSort('asc')">↑</button>
+          <button class="btn_sort" *ngIf="type=='asc'" (click)="changeSort('desc')">↓</button>
+        </th>
+        <th scope="col"><span (click)="changeSort('asclname')">Lastname</span>
+          <button class="btn_sort" *ngIf="type=='desclname'" (click)="changeSort('asclname')">↑</button>
+          <button class="btn_sort" *ngIf="type=='asclname'" (click)="changeSort('desclname')">↓</button>
+        </th>
+        <th scope="col"><span (click)="changeSort('ascnumber')" >Number</span>
+          <button class="btn_sort" *ngIf="type=='descnumber'" (click)="changeSort('ascnumber')">↑</button>
+          <button class="btn_sort" *ngIf="type=='ascnumber'" (click)="changeSort('descnumber')">↓</button>
+        </th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of arrUsers | filter:search | sort:type index as i">
+        <td>{{user.firstname | titlecase}}</td>
+        <td>{{user.lastname | titlecase}}</td>
+        <td>{{user.phone}}</td>
+        <td><button class="btn btn-warning" (click)="edit(user, i)">Edit</button></td>
+        <td><button class="btn btn-danger" (click)="delete(i)">Delete</button></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<div class="form_container" *ngIf="isAddStatus">
+  <div class="modalka">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Phone</h1>
+        <button type="button" class="btn-close" (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-control" [(ngModel)]="firstname" name="firstname"
+              placeholder="first name goes here ">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-control" [(ngModel)]="lastname" name="lastname"
+              placeholder="lastname name goes here ">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Phone</label>
+            <input type="text" class="form-control" [(ngModel)]="phone" name="phone"
+              placeholder="number name goes here ">
+          </div>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" *ngIf="!editStatus" class="btn btn-primary" (click)="addUser()"
+          [disabled]="!firstname || !lastname || !phone">Save</button>
+        <button type="button" *ngIf="editStatus" class="btn btn-primary" (click)="save()"
+          [disabled]="!firstname || !lastname || !phone">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
