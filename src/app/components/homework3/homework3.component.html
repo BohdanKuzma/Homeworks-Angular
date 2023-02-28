@@ -1,9 +1,5 @@
 <div class="heading">
-  <h1>
-    Plan your day!
-  </h1>
-  <h1>
-    User: Ivan Ivanov. Count of Task {{arrTask.length}}
+  <h1>Count of Task: {{arrTask.length}}
   </h1>
 </div>
 
@@ -14,7 +10,8 @@
       <input type="text" class="form-control" [(ngModel)]="taskName" name="taskName">
     </div>
     <div class="col-3">
-      <button type="button" class="btn btn-success mb-3 col-3 w-100" [disabled]="!taskName" (click)="addTask()">Add</button>
+      <button type="button" class="btn btn-success mb-3 col-3 w-100" [disabled]="!taskName"
+        (click)="addTask()">Add</button>
     </div>
   </form>
 

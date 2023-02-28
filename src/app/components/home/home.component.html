@@ -1,0 +1,33 @@
+<div class="heading">
+  <h1>
+    Angular list of previous task
+  </h1>
+</div>
+
+<div style="gap: 15px" class="container d-flex">
+  <div class="card col-4">
+    <img style="height: 100%" src="assets/Cenzor.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Angular Cenzor</h5>
+
+      <a [routerLink]="[ '/works/cenzor' ]" routerLinkActive="active" class="btn btn-primary d-block">Details</a>
+    </div>
+  </div>
+
+  <div class="card col-4">
+    <img style="height: 100%" src="assets/Users.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Angular Users</h5>
+
+      <a [routerLink]="[ '/works/user' ]" routerLinkActive="active" class="btn btn-primary d-block">Details</a>
+    </div>
+  </div>
+
+  <div class="card col-4">
+    <img style="height: 100%" src="assets/Tasks.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Angular Task</h5>
+      <a [routerLink]="[ '/works/task' ]" routerLinkActive="active" class="btn btn-primary d-block">Details</a>
+    </div>
+  </div>
+</div>

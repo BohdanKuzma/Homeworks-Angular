@@ -1,0 +1,25 @@
+.heading {
+  width: 100%;
+  min-height: 75px;
+  margin: 0 auto;
+  display: flex;
+  text-align: center;
+  padding: 10px;
+  flex-direction: column;
+  background-color: #dcdde1;
+  font-size: 22px;
+  color: #000;
+}
+
+
+.linkActive{
+  color: green;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+
+.myNav{
+  width: 100%;
+  box-shadow: 0 0 3px black;
+}
